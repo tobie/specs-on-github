@@ -1,4 +1,4 @@
-using-github-for-spec-work
-==========================
+Specs on Github
+===============
 
-This document simply describes how to use GitHub for spec work.
+You can view the full document [here](http://tobie.github.com/specs-on-github).

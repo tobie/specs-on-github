@@ -16,7 +16,7 @@
       };
     </script>
   </head>
-  <body>
+  <body style="max-width:45em">
     <section id='abstract'>
       This document explains how to best use GitHub for both versioning and displaying of specs.
     </section>
@@ -28,68 +28,62 @@
           <p><a href="https://help.github.com/articles/creating-a-new-repository">Create a new GitHub repository</a>. I usually name the repository with the spec's short name in lowercase. So for example, this repository is called <code>specs-on-github</code>.</p>
         </li>
         <li>
-          <p>Clone the repository locally:</p>
-          <pre><code>$ git clone git@github.com:tobie/specs-on-github.git</code></pre>
+          <p>Clone the repository locally</p>
+          <pre class="highlight lang-bsh"><code>git clone git@github.com:tobie/specs-on-github.git</code></pre>
         </li>
         <li>
-          <p>Navigate to the repo.</p>
-          <pre><code>$ cd specs-on-github</code></pre>
+          <p>Navigate to the repo…</p>
+          <pre class="highlight lang-bsh"><code>cd specs-on-github</code></pre>
         </li>
         <li>
-          <p>Create a new branch which you'll call <code>gh-pages</code>.</p>
-          <pre><code>$ git checkout -b gh-pages</code></pre>
-          <p>Branches named that way trigger GitHubs's <a href="http://pages.github.com/">Page mode</a>. When in Pages mode, the repository's content gets automagically served from <code>http://username.github.com/reponame</code>. For example, the content of this repository is available from <a href="http://tobie.github.com/specs-on-github/"><code>http://tobie.github.com/specs-on-github/</code></a></p>
+          <p>…and create a new branch which you'll call <code>gh-pages</code>.</p>
+          <pre class="highlight lang-bsh"><code>git branch gh-pages
+git checkout gh-pages</code></pre>
+          <p>Branches named that way trigger GitHubs's <a href="http://pages.github.com/">Pages mode</a>. When in Pages mode, the repository's content gets automagically served from http://username.github.com/reponame. For example, the content of this repository is available at <a href="http://tobie.github.com/specs-on-github/">http://tobie.github.com/specs-on-github/</a></p>
         </li>
         <li>
-          <p>Now we want to create a new doc. I use <a href="https://github.com/darobin/respec/">ReSpec</a> for docs, so I simply curl the content of the default template into an <code>index.html</code> page at the root of my repository:</p>
-          <pre><code>$ curl https://raw.github.com/darobin/respec/gh-pages/docs/template.html > index.html</code></pre>
+          <p>Now we want to create the spec document itslef. I use <a href="https://github.com/darobin/respec/">ReSpec</a>, so I simply curl the content of the default template into an <code>index.html</code> page at the root of my repository:</p>
+          <pre class="highlight lang-bsh"><code>curl https://raw.github.com/darobin/respec/gh-pages/docs/template.html > index.html</code></pre>
         </li>
         <li>
-          <p>… and add it to the repository:</p>
-          <pre><code>$ git add index.html
-$ git commit -m "Add empty doc."</code></pre>
+          <p>We can then add it to the repository:</p>
+          <pre class="highlight lang-bsh"><code>git add index.html
+git commit -m "Add empty doc."</code></pre>
         </li>
         <li>
           <p>Lets now push this repository to our GitHub account:</p>
-          <pre><code>$ git push origin </code></pre>
+          <pre class="highlight lang-bsh"><code>git push origin gh-pages</code></pre>
         </li>
         <li>
-          <p></p>
-          <pre><code>$ curl https://raw.github.com/darobin/respec/gh-pages/docs/template.html > index.html</code></pre>
+          <p>The first time you push to a <code>gh-pages</code> it can take a little while for the code to be pushed to your subdomain, sometimes up to 10 minutes, so be patient. But it'll be ready soon enough. For instance, this document is visible at <a href="http://tobie.github.com/specs-on-github/">http://tobie.github.com/specs-on-github/</a>.</p>
         </li>
         <li>
-          <p>Get your <code>README</code> file to reflect that the repository is used for spec work. For that, you can just copy this repo's README.
-          <pre><code></code></pre>
-              
-          <p>Your repository should now look something like this:</p>
-          <pre><code>|-- spec-on-github/
-|      |-- index.html
-|      '-- README.md</code></pre>
+          <p>In the meantime you can visit the repository's admin page and select <code>gh-pages</code> as the default branch.</p>
+          <img src="screenshot.jpg" width="627" height="258" alt="How to select the gh-pages as the default branch using GitHub's UI.">
         </li>
-
-        2. I clone the repository locally.
-
-            
-
-        3. I navigate to the repo
-
-            cd using-github-for-spec-work.git
-
-        4. 
-
-            
-
-        5. G
-
-        6. Modify it so it reflects your own content
-      </p>
+        <li>
+          <p>You can now delete the <code>master</code> branch…</p>
+          <pre class="highlight lang-bsh"><code>git push origin :master</code></pre>
+        </li>
+        <li>
+          <p>…and reset <code>origin</code>'s <code>HEAD</code>:</p>
+          <pre class="highlight lang-bsh"><code>git remote set-head origin -a</code></pre>
+        </li>
+        <li>
+          <p>Finally, your <code>README</code> file should reflect the repository is used for spec work. You can just copy this repo's README and ammend it accordingly.</p>
+          <pre class="highlight lang-bsh"><code>curl https://raw.github.com/tobie/specs-on-github/gh-pages/README.md > README.md
+# Change the links inside of the readme file
+git add README.md
+git commit -m "Updated README to link to live spec."
+git push origin</code></pre>
+        </li>
+      </ol>
     </section>
-    
+    <section>
+      <h2>Publishing releases</h2>
+      <p>Coming soon.</p>
+    </section>
     <section class='appendix'>
-      <h2>Acknowledgements</h2>
-      <p>
-        Many thanks to Robin Berjon for making our lives so much easier with his cool tool.
-      </p>
     </section>
   </body>
 </html>

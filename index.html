@@ -20,71 +20,7 @@
   </head>
   <body style="max-width:45em">
     <section id='abstract'>
-    This document explains how to best use GitHub for versioning and display of specs.
-    </section>
-    
-    Getting started
-    ---------------
-    
-    1.  [Create a new GitHub repository](https://help.github.com/articles/creating-a-new-repository). I usually name the repository with the spec's short name in lowercase. So for example, this repository is called `specs-on-github`.
-    
-    2.  Clone the repository locally,
-        
-        <pre class="highlight lang-bsh"><code>git clone git@github.com:tobie/specs-on-github.git</code></pre>
-    
-    3.  Navigate to the repo…
-        
-        <pre class="highlight lang-bsh"><code>cd specs-on-github</code></pre>
-    
-    4. …and create a new branch which you'll call `gh-pages`.
-        
-        <pre class="highlight lang-bsh"><code>git checkout -b gh-pages</code></pre>
-        
-        Branches named that way trigger GitHubs's [Pages mode](http://pages.github.com/). When in Pages mode, the repository's content gets automagically served from http://username.github.com/reponame. For example, the content of this repository is available at [http://tobie.github.com/specs-on-github/](http://tobie.github.com/specs-on-github/).
-        
-    5.  Now we want to create the spec document itself. I use <a href="https://github.com/darobin/respec/">ReSpec</a>, so I simply curl the content of the default template into an <code>index.html</code> page at the root of my repository:
-        
-        <pre class="highlight lang-bsh"><code>curl http://www.w3.org/respec/examples/template.html > index.html</code></pre>
-        
-    6.  We can then add it to the repository:
-        
-        <pre class="highlight lang-bsh"><code>git add index.html
-        git commit -m "Add empty doc."</code></pre>
-        
-    7.  Lets now push these changes back to our GitHub account:
-        
-        <pre class="highlight lang-bsh"><code>git push origin gh-pages</code></pre>
-    
-    8.  The first time you push to a `gh-pages` it can take a little while for the code to be pushed to your subdomain, sometimes up to 10 minutes, so be patient. But it'll be ready soon enough. For instance, this document is visible at [http://tobie.github.com/specs-on-github/](http://tobie.github.com/specs-on-github/).
-    
-    9.  In the meantime you can visit the repository's admin page and select `gh-pages` as the default branch.
-        
-        <img src="screenshot.jpg" width="627" height="258" alt="How to select the gh-pages as the default branch using GitHub's UI.">
-    
-    10. You can now delete the `master` branch…
-        
-        <pre class="highlight lang-bsh"><code>git push origin :master</code></pre>
-    
-    11. …and reset `origin`'s `HEAD`:
-        
-        <pre class="highlight lang-bsh"><code>git remote set-head origin -a</code></pre>
-    
-    12. Finally, your `README` file should reflect the repository is used for spec work. You can just copy this repo's `README` and amend it accordingly.
-        
-        <pre class="highlight lang-bsh"><code>curl https://raw.github.com/tobie/specs-on-github/gh-pages/README.md > README.md
-        # Change the links inside of the readme file
-        git add README.md
-        git commit -m "Updated README to link to live spec."
-        git push origin</code></pre>
-    
-    13. Bask in the glory of modern spec development.
-    
-    Publishing releases
-    -------------------
-    
-    Coming soon.
-    
-    <section class='appendix'>
+      The content of this document has been moved to <a href="http://w3c.github.io/">http://w3c.github.io/</a>.
     </section>
   </body>
 </html>
